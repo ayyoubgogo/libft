@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   lst_last.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agaougao <agaougao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/03 16:59:45 by agaougao          #+#    #+#             */
-/*   Updated: 2024/04/04 02:42:13 by agaougao         ###   ########.fr       */
+/*   Created: 2023/11/14 14:42:56 by agaougao          #+#    #+#             */
+/*   Updated: 2024/03/26 16:58:46 by agaougao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_strlen(char *str)
+t_swap	*lstlast(t_swap *lst)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
+	if (lst)
 	{
-		i++;
+		while (lst->next != NULL)
+			lst = lst->next;
 	}
-	return (i);
+	return (lst);
 }

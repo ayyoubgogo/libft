@@ -6,11 +6,11 @@
 /*   By: agaougao <agaougao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 15:37:56 by agaougao          #+#    #+#             */
-/*   Updated: 2023/11/26 17:34:56 by agaougao         ###   ########.fr       */
+/*   Updated: 2024/03/23 00:28:11 by agaougao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

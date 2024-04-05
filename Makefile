@@ -5,44 +5,49 @@
 #                                                     +:+ +:+         +:+      #
 #    By: agaougao <agaougao@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/03 16:26:07 by agaougao          #+#    #+#              #
-#    Updated: 2023/11/21 18:16:38 by agaougao         ###   ########.fr        #
+#    Created: 2024/02/26 09:23:44 by agaougao          #+#    #+#              #
+#    Updated: 2024/04/04 14:29:49 by agaougao         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME	= libft.a
+NAME	= push_swap
+NAME_BONUS = checker
+CC 		= gcc -fsanitize=address -g3
+CFLAGS 	= -Wall -Wextra -Werror 
 
-CC 		= gcc
 
-CFLAGS 	= -Wall -Wextra -Werror
+SRCS	=	actions.c 	 operators2.c operators1.c  ft_atoi.c fill_stack.c ft_split.c add_back.c lst_last.c lstnew.c ft_strlen.c \
+			ft_substr.c	lstadd_front.c operators0.c sort_3.c lstsize.c algo.c algo1.c algo2.c  help0.c help1.c check_errors.c ft_lstclear.c checker_heL_fun.c takmila.c
+B_OBJS	= operators3_bonus.c operators4_bonus.c operators5_bonus.c fill_stack.c  ft_split.c add_back.c lst_last.c lstnew.c actions.c\
+		get_next_line/get_next_line.c ft_substr.c	lstadd_front.c algo1.c ft_atoi.c algo.c help0.c check_errors.c lstsize.c  takmila.c\
+		get_next_line/get_next_line_utils.c  operators0.c operators1.c operators2.c checker_heL_fun.c  ft_lstclear.c\
 
-
- SRCS	=	ft_isalpha.c    ft_memcmp.c     ft_putendl_fd.c ft_striteri.c   ft_strncmp.c    ft_strmapi.c \
-			ft_alnum.c      ft_isascii.c    ft_memcpy.c     ft_putnbr_fd.c  ft_strjoin.c    ft_strnstr.c \
-			ft_atoi.c       ft_isdigit.c    ft_memmove.c    ft_putstr_fd.c  ft_strlcat.c    ft_strrchr.c \
-			ft_bzero.c      ft_isprint.c    ft_memset.c     ft_strchr.c     ft_strlcpy.c    ft_tolower.c \
-			ft_calloc.c     ft_memchr.c     ft_putchar_fd.c ft_strdup.c     ft_strlen.c     ft_toupper.c \
-			ft_substr.c 	ft_strtrim.c  	ft_split.c  	ft_itoa.c \
-
-BONUS	= 	ft_lstadd_back_bonus.c	ft_lstadd_front_bonus.c	ft_lstsize_bonus.c	ft_lstclear_bonus.c \
-			ft_lstiter_bonus.c	ft_lstmap_bonus.c		ft_lstdelone_bonus.c	ft_lstnew_bonus.c	ft_lstlast_bonus.c
-			
 OBJS	= $(SRCS:.c=.o)
-BOBJS	= $(BONUS:.c=.o)
+OBJS_BONUS	= $(B_OBJS:.c=.o)
 
-all: $(NAME)
+all : $(NAME)
 
 $(NAME) : $(OBJS)
-	ar -crs $@ $^
 
-bonus : $(BOBJS)
-	ar -rcs  $(NAME) $(BOBJS)
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+	ar -crs $(NAME) $@
+
+bonus : $(NAME_BONUS)
+
+$(NAME_BONUS):$(OBJS_BONUS)
+
+%.o: %.c
+	$(CC) $(CFLAGS)-c $< -o $@
+	ar -crs $(NAME_BONUS) $@
+
+	
 	
 clean:
-	rm -f $(OBJS) $(BOBJS)
+	rm -f $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(NAME_BONUS)
 	
 re: fclean all

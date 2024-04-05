@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   lstnew.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agaougao <agaougao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/03 16:59:45 by agaougao          #+#    #+#             */
-/*   Updated: 2024/04/04 02:42:13 by agaougao         ###   ########.fr       */
+/*   Created: 2023/11/13 11:43:47 by agaougao          #+#    #+#             */
+/*   Updated: 2024/03/30 01:29:42 by agaougao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_strlen(char *str)
+t_swap	*lst_new(long long data)
 {
-	int	i;
+	t_swap	*node;
 
-	i = 0;
-	while (str[i])
-	{
-		i++;
-	}
-	return (i);
+	node = (t_swap *)malloc(sizeof(t_swap));
+	if (!node)
+		return (NULL);
+	node -> data = data;
+	node -> next = NULL;
+	return (node);
 }

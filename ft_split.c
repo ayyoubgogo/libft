@@ -6,11 +6,11 @@
 /*   By: agaougao <agaougao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:36:35 by agaougao          #+#    #+#             */
-/*   Updated: 2023/11/20 16:17:10 by agaougao         ###   ########.fr       */
+/*   Updated: 2024/03/23 02:14:11 by agaougao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 size_t	words_count(char *str, char c)
 {
@@ -53,7 +53,7 @@ void	free_array(int i, char **array)
 	free(array);
 }
 
-char	**split_o(char const *s, char c, char **array, size_t word_count)
+char	**split_o(char *s, char c, char **array, size_t word_count)
 {
 	size_t			i;
 	unsigned int	j;
@@ -78,7 +78,7 @@ char	**split_o(char const *s, char c, char **array, size_t word_count)
 	return (array);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *s, char c)
 {
 	char	**array;
 	size_t	words;
@@ -92,25 +92,3 @@ char	**ft_split(char const *s, char c)
 	array = split_o(s, c, array, words);
 	return (array);
 }
-/*
-#include <stdio.h>
-#include "libft.h"
-
-int main(void)
-{
-	char *str = "This is a test string";
-	char **words = ft_split(str, ' ');
-
-	if (words == NULL)
-	{
-		printf("Error: ft_split returned NULL\n");
-		return (1);
-	}
-
-	for (int i = 0; words[i] != NULL; i++)
-	{
-		printf("%s\n", words[i]);
-	}
-
-	return (0);
-}*/

@@ -1,25 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agaougao <agaougao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/03 16:59:45 by agaougao          #+#    #+#             */
-/*   Updated: 2024/04/04 02:42:13 by agaougao         ###   ########.fr       */
+/*   Created: 2024/03/27 00:58:25 by agaougao          #+#    #+#             */
+/*   Updated: 2024/03/27 01:28:56 by agaougao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_strlen(char *str)
+void	del(void *ptr)
 {
-	int	i;
+	*(int *)ptr = 0;
+	return ;
+}
 
-	i = 0;
-	while (str[i])
+void	ft_lstdelone(t_swap *lst, void (*del)(void *))
+{
+	if (!lst || !del)
+		return ;
+	del(&(lst->data));
+	free(lst);
+}
+
+void	ft_lstclear(t_swap **lst, void (*del)(void *))
+{
+	t_swap	*tmp;
+
+	if (!lst || !(*lst) || !del)
+		return ;
+	while (*lst)
 	{
-		i++;
+		tmp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = tmp;
 	}
-	return (i);
 }

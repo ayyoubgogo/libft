@@ -1,25 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   operators2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agaougao <agaougao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/03 16:59:45 by agaougao          #+#    #+#             */
-/*   Updated: 2024/04/04 02:42:13 by agaougao         ###   ########.fr       */
+/*   Created: 2024/03/02 16:21:37 by agaougao          #+#    #+#             */
+/*   Updated: 2024/03/26 17:06:23 by agaougao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_strlen(char *str)
+void	rrr(t_swap **a, t_swap **b)
 {
+	rra(a, 1);
+	rrb(b, 1);
+	write(1, "rrr\n", 4);
+}
+
+int	big_number(void *node, int t_len)
+{
+	int	number;
 	int	i;
+	int	*track;
 
 	i = 0;
-	while (str[i])
+	track = (int *)node;
+	number = INT_MIN;
+	while (i < t_len)
 	{
+		if (track[i] > number)
+		{
+			number = track[i];
+		}
 		i++;
 	}
-	return (i);
+	return (number);
+}
+
+int	ft_abs(int a)
+{
+	if (a <= 0)
+		return (-a);
+	return (a);
+}
+
+int	max(int i, int j)
+{
+	if (i > j)
+		return (i);
+	else
+		return (j);
 }
